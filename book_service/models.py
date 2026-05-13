@@ -10,7 +10,7 @@ BOOK_COVER_CHOICES = {
 class Book(models.Model):
     title = models.CharField(max_length=255)
     author = models.CharField(max_length=255)
-    Cover = models.CharField(
+    cover = models.CharField(
         max_length=4,
         choices=BOOK_COVER_CHOICES,
     )
