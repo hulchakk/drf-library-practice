@@ -8,5 +8,10 @@ urlpatterns = [
         "book_service.urls",
         namespace="book_service"
         )
+    ),
+    path("api/user/", include(
+        "user.urls",
+        namespace="user"
+        )
     )
 ]
