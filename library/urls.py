@@ -13,5 +13,10 @@ urlpatterns = [
         "user.urls",
         namespace="user"
         )
-    )
+    ),
+    path("api/borrowing_service/", include(
+        "borrowing_service.urls",
+        namespace="borrowing_service"
+        )
+    ),
 ]
