@@ -31,3 +31,6 @@ class Borrowing(models.Model):
                 name="borrow_date_before_actual_return_date"
             ),
         ]
+
+    def __str__(self):
+        return f"{self.user} - {self.borrow_date}: {self.book}"
