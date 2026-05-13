@@ -6,9 +6,6 @@ from user.serializers import UserSerializer
 
 
 class BorrowingSerializer(serializers.ModelSerializer):
-    book = BookSerializer()
-    user = UserSerializer()
-
     class Meta:
         model = Borrowing
         fields = (
@@ -19,3 +16,8 @@ class BorrowingSerializer(serializers.ModelSerializer):
             "book",
             "user"
         )
+
+
+class BorrowingDetailSerializer(BookSerializer):
+    book = BookSerializer()
+    user = UserSerializer()
