@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "user",
     "book_service",
+    "borrowing_service",
     "rest_framework",
 ]
 
