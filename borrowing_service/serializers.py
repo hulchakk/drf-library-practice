@@ -18,6 +18,6 @@ class BorrowingSerializer(serializers.ModelSerializer):
         )
 
 
-class BorrowingDetailSerializer(BookSerializer):
+class BorrowingDetailSerializer(BorrowingSerializer):
     book = BookSerializer()
     user = UserSerializer()
