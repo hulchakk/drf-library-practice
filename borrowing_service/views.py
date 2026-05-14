@@ -2,6 +2,7 @@ from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import extend_schema, OpenApiParameter
 from rest_framework.exceptions import ValidationError
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticated
 
 from book_service.models import Book
 from borrowing_service.serializers import BorrowingSerializer, BorrowingDetailSerializer
@@ -10,6 +11,7 @@ from borrowing_service.models import Borrowing
 
 class BorrowingViewSet(ModelViewSet):
     queryset = Borrowing.objects.all()
+    permission_classes = (IsAuthenticated, )
 
     @extend_schema(
         parameters=[
