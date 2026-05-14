@@ -19,7 +19,7 @@ SAMPLE_BOOK_DATA = {
 
 
 def sample_book(**params):
-    defaults = SAMPLE_BOOK_DATA
+    defaults = SAMPLE_BOOK_DATA.copy()
     
     defaults.update(params)
 
