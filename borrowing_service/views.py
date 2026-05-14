@@ -1,3 +1,5 @@
+from drf_spectacular.types import OpenApiTypes
+from drf_spectacular.utils import extend_schema, OpenApiParameter
 from rest_framework.exceptions import ValidationError
 from rest_framework.viewsets import ModelViewSet
 
@@ -8,6 +10,23 @@ from borrowing_service.models import Borrowing
 
 class BorrowingViewSet(ModelViewSet):
     queryset = Borrowing.objects.all()
+
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name="is_active",
+                type=OpenApiTypes.BOOL,
+                description="Filter active borrowings."
+            ),
+            OpenApiParameter(
+                name="user_id",
+                type=OpenApiTypes.INT,
+                description="Filter borrowings by user_id (ONLY FOR STAFF)."
+            )
+        ]
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
 
     def get_queryset(self):
         queryset = self.queryset
